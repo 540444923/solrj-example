@@ -3,6 +3,8 @@ package net.aimeizi.webmagic;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import net.aimeizi.webmagic.JDPipeline;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -79,7 +81,8 @@ public class JDProductProcessor implements PageProcessor {
         return site;
     }
 
-    public static void main(String[] args) throws Exception {
+    @SuppressWarnings("resource")
+	public static void main(String[] args) throws Exception {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         JDPipeline jdPipeline = (JDPipeline) applicationContext.getBean("jdPipeline");
